@@ -4,9 +4,8 @@ A collaborative task management web application where teams can create projects,
 
 ## 🚀 Submission Links
 
-- **Live Application:** [Deploying...] (Replace with your Render URL once deployed)
+- **Live Application:** [https://ethara-assignment-zng8.onrender.com](https://ethara-assignment-zng8.onrender.com)
 - **GitHub Repository:** [https://github.com/jessuiii/ethara-assignment](https://github.com/jessuiii/ethara-assignment)
-- **Demo Video:** [Recording...] (Replace with your Loom/YouTube/Drive video link)
 
 ---
 
@@ -228,7 +227,5 @@ We have checked in a `.python-version` file specifying `3.11.9`. This ensures Re
 
 ## 🔗 Submission Links
 
-- **Live Application:** [Deploying...] (Replace with your Render URL once deployed)
+- **Live Application:** [https://ethara-assignment-zng8.onrender.com](https://ethara-assignment-zng8.onrender.com)
 - **GitHub Repository:** [https://github.com/jessuiii/ethara-assignment](https://github.com/jessuiii/ethara-assignment)
-- **Demo Video:** [Recording...] (Replace with your Loom/YouTube/Drive video link)
-
