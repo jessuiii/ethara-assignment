@@ -56,23 +56,29 @@ A collaborative task management web application where teams can create projects,
 | Layer | Technology |
 |-------|-----------|
 | Frontend | React 18, Vite, React Router v6 |
-| Backend | Node.js, Express |
-| Database | PostgreSQL (Supabase), Sequelize ORM |
-| Auth | JWT, bcryptjs |
+| Backend | Python 3, FastAPI, Uvicorn |
+| Database | PostgreSQL (Supabase), SQLAlchemy (async) + asyncpg |
+| Auth | JWT (python-jose), passlib (bcrypt) |
+| Validation | Pydantic v2 |
 | Styling | Vanilla CSS (custom design system) |
 | Fonts | Sora, Plus Jakarta Sans, JetBrains Mono |
-| Deployment | Railway |
+| Deployment | Render |
 
 ## Project Structure
 
 ```
 ethara/
-├── server/                    # Express API server
-│   ├── config/database.js     # Sequelize + Supabase PostgreSQL config
-│   ├── middleware/             # Auth, role-check, error handler
-│   ├── models/                # User, Project, ProjectMember, Task
-│   ├── routes/                # auth, projects, tasks, dashboard
-│   └── index.js               # Entry point
+├── server/                    # FastAPI API server
+│   ├── database.py            # Async SQLAlchemy engine + session
+│   ├── models.py              # User, Project, ProjectMember, Task ORM models
+│   ├── schemas.py             # Pydantic request/response schemas
+│   ├── auth.py                # JWT auth + role-check dependencies
+│   ├── routers/               # API route handlers
+│   │   ├── auth.py            # signup, login, me
+│   │   ├── projects.py        # project CRUD, members
+│   │   ├── tasks.py           # task CRUD with role access
+│   │   └── dashboard.py       # aggregated stats
+│   └── main.py                # FastAPI entry point
 ├── client/                    # React SPA (Vite)
 │   ├── src/
 │   │   ├── components/        # Navbar, TaskCard, TaskModal, etc.
@@ -80,14 +86,15 @@ ethara/
 │   │   ├── context/           # AuthContext
 │   │   └── services/          # API client
 │   └── index.html
-├── package.json               # Root scripts
-├── railway.json               # Railway deploy config
+├── requirements.txt           # Python dependencies
+├── package.json               # Root scripts (build + start)
 └── .env.example               # Environment template
 ```
 
 ## Local Development Setup
 
 ### Prerequisites
+- **Python** 3.11+
 - **Node.js** 18+
 - **Supabase account** (free tier at [supabase.com](https://supabase.com))
 - **Git**

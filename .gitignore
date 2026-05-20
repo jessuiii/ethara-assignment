@@ -4,3 +4,9 @@ client/dist/
 client/node_modules/
 *.log
 .DS_Store
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
