@@ -3,6 +3,7 @@ from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 from uuid import uuid4
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.pool import NullPool
 
 DATABASE_URL = os.getenv("DATABASE_URL", "")
 
@@ -24,10 +25,10 @@ elif DATABASE_URL.startswith("postgresql://"):
 engine = create_async_engine(
     DATABASE_URL,
     echo=os.getenv("NODE_ENV") != "production",
-    pool_size=5,
-    max_overflow=0,
     pool_pre_ping=True,
+    poolclass=NullPool,
     connect_args={
+        "prepared_statement_cache_size": 0,
         "statement_cache_size": 0,
         "prepared_statement_name_func": lambda: f"__asyncpg_{uuid4()}__",
     },
