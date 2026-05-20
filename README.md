@@ -4,16 +4,17 @@ A collaborative task management web application where teams can create projects,
 
 ## 🚀 Submission Links
 
-- **Live Application:** [Deploying...] (Replace with your Railway URL once deployed)
+- **Live Application:** [Deploying...] (Replace with your Render URL once deployed)
 - **GitHub Repository:** [https://github.com/jessuiii/ethara-assignment](https://github.com/jessuiii/ethara-assignment)
 - **Demo Video:** [Recording...] (Replace with your Loom/YouTube/Drive video link)
 
 ---
 
-![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1?logo=postgresql&logoColor=white)
-![Railway](https://img.shields.io/badge/Deployed_on-Railway-0B0D0E?logo=railway&logoColor=white)
+![Render](https://img.shields.io/badge/Deployed_on-Render-46E3B7?logo=render&logoColor=white)
 
 ## Features
 
@@ -153,54 +154,32 @@ The frontend proxies `/api` requests to the backend in development.
 
 ## Deployment
 
-The application is configured to deploy seamlessly on platforms like **Render** or **Railway**. The Express backend automatically builds and serves the built React frontend SPA in production.
+The application is configured to deploy seamlessly on **Render**. The backend automatically installs all Python packages, builds the compiled client React SPA, and runs a unified FastAPI production server.
 
-### Option A: Deployment on Render (100% Free)
+### Deploying on Render
 
-#### 1. Create a Web Service on Render
-- Go to [render.com](https://render.com/) and sign up / log in.
+#### 1. Create a Web Service
+- Sign up or log into [render.com](https://render.com/).
 - Click **New +** → **Web Service**.
 - Connect your GitHub repository `ethara-assignment`.
 
 #### 2. Configure Service Settings
-- **Name:** `ethara-task-manager` (or any name you prefer)
-- **Runtime:** `Node`
-- **Build Command:** `npm install && npm run build`
+- **Name:** `ethara-task-manager`
+- **Runtime:** `Node` (This allows Render to manage both NPM and Python runtimes automatically using the `package.json` entry points)
+- **Build Command:** `npm run build`
 - **Start Command:** `npm start`
 
 #### 3. Set Environment Variables
 In the **Environment** tab, click **Add Environment Variable** and add:
 
-| Key | Value |
-|-----|-------|
-| `DATABASE_URL` | Your Supabase PostgreSQL connection string (same as in `.env`) |
-| `JWT_SECRET` | A strong random string (e.g., `some-random-secret-key`) |
-| `NODE_ENV` | `production` |
+| Key | Value | Description |
+| :--- | :--- | :--- |
+| `DATABASE_URL` | `postgresql://...` | Your Supabase PostgreSQL connection string |
+| `JWT_SECRET` | *random-string* | Secret key for JWT signing |
+| `NODE_ENV` | `production` | **Critical** — signals FastAPI to serve the React SPA compiled files |
 
-#### 4. Deploy
-- Click **Create Web Service**.
-- Render will install all dependencies, build the React frontend, and start the Express server.
-- Once deployed, Render will provide a public URL (e.g., `https://ethara-task-manager.onrender.com`).
-
----
-
-### Option B: Deployment on Railway
-
-#### 1. Create a Railway project
-- Go to [railway.com](https://railway.com) and create a new project.
-- Connect your GitHub repository.
-
-#### 2. Set environment variables
-In Railway's service settings, add:
-
-| Variable | Value |
-|----------|-------|
-| `DATABASE_URL` | Your Supabase PostgreSQL connection string |
-| `JWT_SECRET` | A strong random string |
-| `NODE_ENV` | `production` |
-
-#### 3. Deploy
-Railway auto-deploys on push using the `railway.json` configuration. The Express server serves the built React SPA in production.
+#### 4. Automatic Build Optimization
+We have checked in a `.python-version` file specifying `3.11.9`. This ensures Render uses a stable Python environment and fetches pre-compiled wheels for fast and error-free package installations. Additionally, our database driver configuration automatically disables prepared statement caching to ensure 100% compatibility with Supabase's transaction pooler.
 
 ## API Endpoints
 
@@ -249,7 +228,7 @@ Railway auto-deploys on push using the `railway.json` configuration. The Express
 
 ## 🔗 Submission Links
 
-- **Live Application:** [Deploying...] (Replace with your Railway URL once deployed)
+- **Live Application:** [Deploying...] (Replace with your Render URL once deployed)
 - **GitHub Repository:** [https://github.com/jessuiii/ethara-assignment](https://github.com/jessuiii/ethara-assignment)
 - **Demo Video:** [Recording...] (Replace with your Loom/YouTube/Drive video link)
 
