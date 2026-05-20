@@ -2,6 +2,14 @@
 
 A collaborative task management web application where teams can create projects, assign tasks, track progress, and manage members with role-based access control. Built as a simplified version of tools like Trello and Asana.
 
+## 🚀 Submission Links
+
+- **Live Application:** [Deploying...] (Replace with your Railway URL once deployed)
+- **GitHub Repository:** [https://github.com/jessuiii/ethara-assignment](https://github.com/jessuiii/ethara-assignment)
+- **Demo Video:** [Recording...] (Replace with your Loom/YouTube/Drive video link)
+
+---
+
 ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1?logo=postgresql&logoColor=white)
@@ -206,3 +214,12 @@ The Express server serves the built React SPA in production.
 | `npm run dev:client` | Start frontend only |
 | `npm run build` | Build React client for production |
 | `npm start` | Start production server |
+
+---
+
+## 🔗 Submission Links
+
+- **Live Application:** [Deploying...] (Replace with your Railway URL once deployed)
+- **GitHub Repository:** [https://github.com/jessuiii/ethara-assignment](https://github.com/jessuiii/ethara-assignment)
+- **Demo Video:** [Recording...] (Replace with your Loom/YouTube/Drive video link)
+
