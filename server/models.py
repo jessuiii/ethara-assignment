@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Optional, List
 
 from sqlalchemy import String, Text, ForeignKey, Enum, Date, UniqueConstraint
@@ -22,7 +22,7 @@ class User(Base):
     email: Mapped[str] = mapped_column(String(255), nullable=False, unique=True)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
     created_at: Mapped[datetime] = mapped_column(
-        default=lambda: datetime.now(timezone.utc)
+        default=datetime.utcnow
     )
 
     # relationships
@@ -53,7 +53,7 @@ class Project(Base):
         UUID(as_uuid=True), ForeignKey("users.id"), nullable=False
     )
     created_at: Mapped[datetime] = mapped_column(
-        default=lambda: datetime.now(timezone.utc)
+        default=datetime.utcnow
     )
 
     # relationships
@@ -90,7 +90,7 @@ class ProjectMember(Base):
         default="member",
     )
     joined_at: Mapped[datetime] = mapped_column(
-        default=lambda: datetime.now(timezone.utc)
+        default=datetime.utcnow
     )
 
     # relationships
@@ -128,11 +128,11 @@ class Task(Base):
         UUID(as_uuid=True), ForeignKey("users.id"), nullable=False
     )
     created_at: Mapped[datetime] = mapped_column(
-        default=lambda: datetime.now(timezone.utc)
+        default=datetime.utcnow
     )
     updated_at: Mapped[datetime] = mapped_column(
-        default=lambda: datetime.now(timezone.utc),
-        onupdate=lambda: datetime.now(timezone.utc),
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
     )
 
     # relationships
