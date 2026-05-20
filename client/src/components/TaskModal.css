@@ -1,0 +1,21 @@
+.task-modal {
+  max-width: 540px;
+}
+
+.task-modal .form-row {
+  gap: var(--space-4);
+}
+
+.task-modal input[type="date"] {
+  color-scheme: light;
+}
+
+.task-modal .modal-footer {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+}
+
+.task-modal .modal-body {
+  padding-bottom: var(--space-4);
+}

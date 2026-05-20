@@ -1,0 +1,6 @@
+/* Signup reuses Login.css auth styles — this file adds any signup-specific overrides */
+
+/* The signup card is slightly taller due to more fields, ensure it doesn't feel cramped */
+.auth-page .auth-card {
+  max-width: 100%;
+}

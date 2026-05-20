@@ -1,0 +1,142 @@
+.member-modal {
+  max-width: 480px;
+}
+
+/* ── Add form ── */
+.member-add-form {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.member-add-form input {
+  flex: 1;
+}
+
+.member-suggestions {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  margin-top: calc(var(--space-5) * -1 + var(--space-2));
+  margin-bottom: var(--space-5);
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.member-suggestion-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.member-suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.member-suggestion-item:hover {
+  background: var(--bg-subtle);
+}
+
+.member-suggestion-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.member-suggestion-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.member-suggestion-email {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+.member-suggestion-hint {
+  padding: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+/* ── Member list ── */
+.member-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.member-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.member-item:hover {
+  background: var(--bg-subtle);
+}
+
+.member-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.member-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.member-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-email {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.member-remove {
+  padding: 4px !important;
+  color: var(--text-tertiary) !important;
+}
+
+.member-remove:hover {
+  color: var(--danger) !important;
+  background: var(--danger-light) !important;
+}
+
+.member-empty {
+  text-align: center;
+  padding: var(--space-8) 0;
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+}

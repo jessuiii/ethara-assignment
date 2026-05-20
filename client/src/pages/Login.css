@@ -1,0 +1,93 @@
+/* ═══ Auth Pages (shared between Login & Signup) ═══ */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--bg-page);
+}
+
+/* Subtle dot pattern background */
+.auth-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #e2e8f0 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+}
+
+.auth-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-6);
+}
+
+.auth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+  box-shadow: var(--shadow-lg);
+  animation: fadeInUp 400ms ease;
+}
+
+/* ── Brand ── */
+.auth-brand {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.auth-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+}
+
+.auth-brand h1 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-1);
+}
+
+.auth-brand p {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+/* ── Form ── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 12px;
+  font-size: var(--text-base);
+  margin-top: var(--space-2);
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  margin-top: var(--space-6);
+}
+
+.auth-switch a {
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: var(--space-4);
+  }
+
+  .auth-card {
+    padding: var(--space-8) var(--space-6);
+  }
+}

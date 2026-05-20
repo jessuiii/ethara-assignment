@@ -1,0 +1,218 @@
+/* ═══ Project Detail & Kanban Board ═══ */
+
+.project-detail {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--navbar-height));
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.project-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-8);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.project-detail-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.project-detail-header-left h1 {
+  font-size: var(--text-xl);
+}
+
+.project-detail-desc {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  max-width: 500px;
+  margin: 0;
+}
+
+.project-detail-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ── Member Avatars ── */
+.project-detail-members {
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-member-avatar {
+  margin-left: -6px;
+  border: 2px solid var(--bg-card);
+}
+
+.project-detail-member-avatar:first-child {
+  margin-left: 0;
+}
+
+.project-detail-member-more {
+  margin-left: 4px;
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+/* ══════════════════════════════
+   KANBAN BOARD
+   ══════════════════════════════ */
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-8);
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 0;
+}
+
+/* ── Column ── */
+.kanban-column {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  min-height: 200px;
+  border: 2px solid transparent;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.kanban-column--dragover {
+  border-color: var(--accent-muted);
+  background: var(--accent-light);
+}
+
+/* ── Column Header ── */
+.kanban-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  flex-shrink: 0;
+}
+
+.kanban-column-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.kanban-column-count {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.kanban-add-btn {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.kanban-add-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-active);
+}
+
+/* ── Column Body ── */
+.kanban-column-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-3) var(--space-3);
+  overflow-y: auto;
+  flex: 1;
+  min-height: 60px;
+}
+
+.kanban-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  color: var(--text-tertiary);
+  font-size: var(--text-xs);
+}
+
+.kanban-empty p {
+  color: var(--text-tertiary);
+}
+
+/* ── FAB ── */
+.fab {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3), var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  z-index: 50;
+}
+
+.fab:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35), var(--shadow-lg);
+}
+
+.fab:active {
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .kanban {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    padding: var(--space-4);
+  }
+
+  .kanban-column {
+    min-height: auto;
+  }
+
+  .project-detail-header {
+    padding: var(--space-4) var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .project-detail-header-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .fab {
+    bottom: var(--space-5);
+    right: var(--space-5);
+    width: 48px;
+    height: 48px;
+  }
+}
