@@ -144,33 +144,56 @@ This starts both:
 
 The frontend proxies `/api` requests to the backend in development.
 
-## Deployment on Railway
+## Deployment
 
-### 1. Create a Railway project
+The application is configured to deploy seamlessly on platforms like **Render** or **Railway**. The Express backend automatically builds and serves the built React frontend SPA in production.
 
-- Go to [railway.com](https://railway.com) and create a new project
-- Connect your GitHub repository
+### Option A: Deployment on Render (100% Free)
 
-### 2. Set environment variables
+#### 1. Create a Web Service on Render
+- Go to [render.com](https://render.com/) and sign up / log in.
+- Click **New +** → **Web Service**.
+- Connect your GitHub repository `ethara-assignment`.
 
+#### 2. Configure Service Settings
+- **Name:** `ethara-task-manager` (or any name you prefer)
+- **Runtime:** `Node`
+- **Build Command:** `npm install && npm run build`
+- **Start Command:** `npm start`
+
+#### 3. Set Environment Variables
+In the **Environment** tab, click **Add Environment Variable** and add:
+
+| Key | Value |
+|-----|-------|
+| `DATABASE_URL` | Your Supabase PostgreSQL connection string (same as in `.env`) |
+| `JWT_SECRET` | A strong random string (e.g., `some-random-secret-key`) |
+| `NODE_ENV` | `production` |
+
+#### 4. Deploy
+- Click **Create Web Service**.
+- Render will install all dependencies, build the React frontend, and start the Express server.
+- Once deployed, Render will provide a public URL (e.g., `https://ethara-task-manager.onrender.com`).
+
+---
+
+### Option B: Deployment on Railway
+
+#### 1. Create a Railway project
+- Go to [railway.com](https://railway.com) and create a new project.
+- Connect your GitHub repository.
+
+#### 2. Set environment variables
 In Railway's service settings, add:
 
 | Variable | Value |
 |----------|-------|
-| `DATABASE_URL` | Your Supabase PostgreSQL connection string (same one from `.env`) |
+| `DATABASE_URL` | Your Supabase PostgreSQL connection string |
 | `JWT_SECRET` | A strong random string |
 | `NODE_ENV` | `production` |
 
-> **No Railway database needed** — the app connects to your Supabase PostgreSQL instance directly.
-
-### 3. Deploy
-
-Railway auto-deploys on push. The build process:
-1. Installs server dependencies
-2. Builds the React client (`npm run build`)
-3. Starts the Express server (`npm start`)
-
-The Express server serves the built React SPA in production.
+#### 3. Deploy
+Railway auto-deploys on push using the `railway.json` configuration. The Express server serves the built React SPA in production.
 
 ## API Endpoints
 
